@@ -56,3 +56,6 @@ the same class. Decorators are typically used to modify or extend the
 behavior of functions or methods at runtime. like order hotel like with breakfast or dinner or wifi
 
 type ClassDecorator = <TFunction extends Function>(target: TFunction) => TFunction | void;
+
+
+nest g controller admin/campaign --flat<dont create an extra folder called controller>
