@@ -171,3 +171,6 @@ Overall, dependency injection in NestJS simplifies the management of dependencie
 3) Constructos Injection: dependences are injected into any class want it.while a class need instandes it automatically injection the token.
 4) Modules Configuration : first Injection do in Modules.you can management in their.
 5) Modules can imports and export
+
+
+ <!-- imports:[PowerModule],// in there list of dependensis is CpuService + PowerService + all thing in PowerModule -->
