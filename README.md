@@ -111,6 +111,8 @@ Tight coupling, on the other hand, means that components are highly dependent on
 از سوی دیگر، اتصال محکم به این معنی است که اجزاء به شدت به یکدیگر وابسته هستند و تغییر یا گسترش سیستم را بدون تأثیرگذاری بر سایر قسمت‌ها دشوار می‌کند.
 
 ## Injectable
+@Injectable(): This decorator is used to mark a class as a provider within the NestJS dependency injection system. Providers in NestJS are classes that can be injected into other classes or modules. When you mark a class with @Injectable(), NestJS knows that it can be instantiated by the dependency injection container and injected into other classes that depend on it. You typically use @Injectable() to define services, repositories, controllers, or other reusable components in your application.
+
 Controllre use the Service so service is depened controller and app is start nest ask Controoler did you have depencedis Controoler said yes the Serivec and Serives is @Injectable so can Inject to an other class that need service instead of new (tight coupling) But first you defined me in module till nest realize I can be instance and controller and use me.
 * if we use @Injectable() up the class that mean it becme looseCopuling and that mean if some class neeed it instanse it and use it very easily like a interface and any time we want we can use this instanse<depedncy>
 forexample: we have service, and controller depenecd it first we come up the class service name we use @injectable and inject in module with provider or export and while app start nest check this controller and realize it has one depenced it name is service and in it looseCopuling so it instansed it on it when it need the service  and service do  like interface in Controller.
@@ -137,6 +139,10 @@ When you directly instantiate dependencies within a class (tight coupling) inste
 3) It enables easy substitution of dependencies, making it simpler to change implementations or mock dependencies during testing.
 4) It encourages better code organization and reuse by separating concerns and promoting a more modular architecture.
 
+
+# @Inject
+@Inject() tells Nest, "Hey, I know this says it is a Logger class, but really inject the provider with the injection token I tell you", which is useful for things like using specific instances of, say, a Logger class.
+token for the path the type
 # DI(Dependency Injection) Container Flow
 * that is a design pattern 
 1) startUp and Register all classs with Container.
@@ -174,3 +180,13 @@ Overall, dependency injection in NestJS simplifies the management of dependencie
 
 
  <!-- imports:[PowerModule],// in there list of dependensis is CpuService + PowerService + all thing in PowerModule -->
+
+
+ # Mongo:
+1) The forRoot(): method accepts the same configuration object as mongoose.connect() from the Mongoose package, as described here.
+2) The @Schema() decorator marks a class as a schema definition.
+3) The @Prop() decorator defines a property in the document. 
+
+# Redis:
+install: cache-manager + cache-manager-redis-store
+
