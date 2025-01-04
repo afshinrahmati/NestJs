@@ -175,15 +175,19 @@ behavior of functions or methods at runtime. like order hotel like with breakfas
 
 type ClassDecorator = <TFunction extends Function>(target: TFunction) => TFunction | void;
 
-
-# Export:
+# Components
+the core components that make up an application and These components work together to provide a structured and organized way of building scalable and maintainable applications.
+## MODULE
+A Module is a way to organize related components and connect all the components with each other making it easier to manage dependencies
+## Export:
 Sometimes, you might want to make certain providers or components of a module available for use in other modules.
-# imports: 
+## imports: 
 In a Nest.js module, you import other modules, services, or dependencies that are required for the module to function properly.
-# providers : 
-things That Can Be used As Dependencies For Other Classes
-Providers are typically services, repositories
-# controller:
+## providers : 
+the core way of managing dependencies in NestJS.
+Providers are typically services, repositories, or other classes that contain reusable business logic. 
+They can be injected into other components (like controllers or other providers) using dependency injection
+## controller:
 Controllers are responsible for handling incoming HTTP requests and returning appropriate responses.
 nest g controller admin/campaign --flat<dont create an extra folder called controller>
 
@@ -193,6 +197,12 @@ nest g controller admin/campaign --flat<dont create an extra folder called contr
 2) class-validator => instance the validaton 
 # step:
 1) pipe: vlaidate Data in the request.
+ ```
+    @Get(':id')
+    async findOne(@Param('id', ParseIntPipe) id: number) {
+      return this.catsService.findOne(id);
+    }
+ ```
 2) MessageController: Handle the request to a particular funcation
 3) Service: 
 *  it is a class and managing the business logic and this is repositories to find or store data.
@@ -228,6 +238,16 @@ Loose coupling means that components are relatively independent of each other, m
 Tight coupling, on the other hand, means that components are highly dependent on each other, making it difficult to modify or extend the system without impacting other parts.new Calass()
 از سوی دیگر، اتصال محکم به این معنی است که اجزاء به شدت به یکدیگر وابسته هستند و تغییر یا گسترش سیستم را بدون تأثیرگذاری بر سایر قسمت‌ها دشوار می‌کند.
 
+
+# AOP(Aspect-Oriented Programming)
+AOP, or Aspect-Oriented Programming, is a programming paradigm that allows developers to separate cross-cutting concerns from the main business 
+logic of an application. This helps to reduce repetitive code, improve readability, and make the code easier to maintain.
+Aspect: A module that contains behavior you want to add to multiple parts of the program, like logging.
+Advice: Code that executes at specific points. Types of advice include:
+Before Advice: Runs before a method is called.
+After Advice: Runs after a method completes.
+Around Advice: Runs before and after a method, and can control its execution.
+## Interceptors is one of the AOP that mean before or after a method call we can do it like login or serilaied
 ## Injectable
 @Injectable(): This decorator is used to mark a class as a provider within the NestJS dependency injection system. Providers in NestJS are classes that can be injected into other classes or modules. When you mark a class with @Injectable(), NestJS knows that it can be instantiated by the dependency injection container and injected into other classes that depend on it. You typically use @Injectable() to define services, repositories, controllers, or other reusable components in your application.
 
@@ -322,13 +342,12 @@ Performance        | Slightly less performant due to abstraction layers | Lightw
 Use Case           | Ideal for large, complex, maintainable apps  | Suitable for lightweight APIs, MVPs
 
 
-
 Here’s a breakdown of the differences between **Fastify**, **Express**, and **NestJS**, considering their design philosophies, features, performance, and use cases:
 
----
+
 
 ### **1. Fastify**
-#### **Overview**  
+#### **Overview**
 Fastify is a fast and low-overhead web framework for Node.js that focuses on performance and developer experience. It uses an asynchronous programming model with Promises and provides schema-based validation.
 
 #### **Key Features**
@@ -346,7 +365,7 @@ Fastify is a fast and low-overhead web framework for Node.js that focuses on per
 ---
 
 ### **2. Express.js**
-#### **Overview**  
+#### **Overview**
 Express.js is a minimalist and unopinionated web framework for Node.js. It has been the de-facto standard for building web applications and APIs for years.
 
 #### **Key Features**
@@ -363,7 +382,7 @@ Express.js is a minimalist and unopinionated web framework for Node.js. It has b
 ---
 
 ### **3. NestJS**
-#### **Overview**  
+#### **Overview**
 NestJS is a progressive, opinionated framework for building scalable and maintainable server-side applications. It is built on top of Express (or optionally Fastify) and leverages TypeScript by default.
 
 #### **Key Features**
